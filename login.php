@@ -7,7 +7,7 @@
         echo "{\"error\": \"login or password invalid\"}";
     }else{
         if($user['password'] == $_POST["password"]){
-            echo json_encode($req->fetchAll());
+            echo json_encode($user);
         }else{
             echo "{\"error\": \"login or password invalid\"}";
         }
