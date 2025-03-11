@@ -4,11 +4,11 @@
     $req->execute(array($_POST['email']));
     $user = $req->fetch();
     if($user === false){
-        echo "{error: \"login or password invalid\"}";
+        echo "{\"error\": \"login or password invalid\"}";
     }else{
         if($user['password'] == $_POST["password"]){
             echo json_encode($req->fetchAll());
         }else{
-            echo "{error: \"login or password invalid\"}";
+            echo "{\"error\": \"login or password invalid\"}";
         }
     }

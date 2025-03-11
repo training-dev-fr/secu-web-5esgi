@@ -1,5 +1,7 @@
 
-document.querySelector("#connect").addEventListener("click", connect)
+document.querySelector("#connect").addEventListener("click", (e) => {
+    connect(e);
+})
 
 const connect = async (e) => {
     if (document.querySelector("#email").reportValidity()) {
