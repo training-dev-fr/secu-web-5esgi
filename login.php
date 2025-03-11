@@ -3,8 +3,12 @@
     $req = $bdd->prepare("SELECT * FROM user WHERE email=?");
     $req->execute(array($_POST['email']));
     $user = $req->fetch();
-    if($user['password'] == $_POST["password"]){
-        echo json_encode($req->fetchAll());
+    if($user === false){
+        echo "{error: \"login or password invalid\"}";
     }else{
-        echo "{error: \"login or password invalid_\"}";
+        if($user['password'] == $_POST["password"]){
+            echo json_encode($req->fetchAll());
+        }else{
+            echo "{error: \"login or password invalid\"}";
+        }
     }
